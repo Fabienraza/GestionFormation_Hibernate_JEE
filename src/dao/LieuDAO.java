@@ -15,6 +15,11 @@ public class LieuDAO implements ILieuDAO{
 	
 	SessionFactory sf = new Configuration().configure("/ressources/hibernate.cfg.xml").buildSessionFactory();
 	
+	
+	
+						/********************************************
+						 * Methode pour ajouter un lieu de formation
+						 ********************************************/
 	@Override
 	public int addLieu(Lieu L) {
 		try {
@@ -30,6 +35,13 @@ public class LieuDAO implements ILieuDAO{
 		}
 	}
 
+	
+	
+						/********************************************
+						 * Methode pour lister les lieux de formation
+						 ********************************************/
+	
+	
 	@Override
 	public List<Lieu> listeLieux() {
 		try {

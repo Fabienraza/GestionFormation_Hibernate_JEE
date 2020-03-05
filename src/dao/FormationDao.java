@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,7 +17,10 @@ public class FormationDao implements IFormationDao{
 	SessionFactory sessionfactory = new Configuration().configure("/ressources/hibernate.cfg.xml").buildSessionFactory();
 	Session session = sessionfactory.openSession();
 	
-	
+							
+							/************************************
+							 * Methode pour ajouter une formation
+							 ***********************************/
 	@Override
 	public int addFormation(Formation f) {
 		try {
@@ -31,6 +35,10 @@ public class FormationDao implements IFormationDao{
 	}
 	
 	
+							
+							/***********************************************
+							 * Methode pour afficher la liste des formations
+							 ***********************************************/	
 
 	@Override
 	public ArrayList<Formation> listFormation() {
@@ -63,17 +71,20 @@ public class FormationDao implements IFormationDao{
 			return null;
 		}
 	}
+	
+	
 
-
-
+							
+							/**********************************************
+							 * Methode pour trier les formation suivant lieu 
+							 **********************************************/
 	@Override
 	public List<Formation> findByLocation(Lieu lieu) {
 		List<Formation> list = new ArrayList<Formation>();
 		session.beginTransaction();
-		SQLQuery query = session.createSQLQuery("select * from formation where idLieu =:lieu");
-		query.addEntity(Lieu.class);
-		query.setParameter("lieu", lieu.getIdLieu());
-		list = (ArrayList<Formation>) query.list();
+		Query query = session.createQuery("from Formation where lieu.idLieu = :fff");
+		query.setParameter("fff", lieu.getIdLieu());
+		list = query.list();
 		return list;
 	}
 
