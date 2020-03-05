@@ -21,7 +21,7 @@
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h1>La liste des formations présentes dans la base de donnée</h1>
+				<h1 class="display-4" style=text-align:center>La liste des formations présentes dans la base de donnée</h1>
 			</div>
 		</div>
 

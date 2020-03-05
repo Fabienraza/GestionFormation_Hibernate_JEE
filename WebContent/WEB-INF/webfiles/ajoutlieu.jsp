@@ -18,7 +18,7 @@
 		
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 style=text-align:center;color:blue class="display-3">AJOUTER UN LIEU DANS LA BASE DE DONNEE ADAMING</h1>
+					<h1 style=text-align:center;color:blue class="display-4">AJOUTER UN LIEU DANS LA BASE DE DONNEE ADAMING</h1>
 				</div>
 			</div>
 		<form action="/3-GestionFormation_Hibernate_JEE/ajoutlieu" method="post">

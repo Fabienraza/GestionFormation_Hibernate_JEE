@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Insert title here</title>
+		<title>Ajout formation</title>
 		<style type="text/css"> <%@ include file="bootstrap.min.css" %> </style>
 	</head>
 	
@@ -18,7 +18,7 @@
 
 			<div class="row">
 				<div class="col-lg-12">
-					<h5 style=text-align:center;color:blue class="display-3">AJOUTER UNE FORMATION DANS LA BASE DE DONNEE ADAMING</h5>
+					<h5 style=text-align:center;color:blue class="display-4">AJOUTER UNE FORMATION DANS LA BASE DE DONNEE ADAMING</h5>
 				</div>
 			</div>
 
@@ -26,11 +26,12 @@
 				<div class="col-lg-12">
 					<form action="/3-GestionFormation_Hibernate_JEE/ajoutformation" method="post">
 						<div class="form-group">
-							<label> Thème de la formation </label> 
-							<input type="text" name="theme" placeholder="Saisir le thème de la formation"> <br>
+							<label> Thème de la formation </label><br> 
+							<input type="text" name="theme" class="form-control" placeholder="Saisir le thème de la formation"> <br>
 							
-							<label>Lieu de la formation </label>
-							<select name="lieuFormation">
+				
+							<label>Lieu de la formation </label> <br>
+							<select name="lieuFormation" class="form-control form-control-lg">
 								<c:forEach items="${listeLieu}" var="liste">
 									<option value="${liste.idLieu}">${liste.ville}</option>
 								</c:forEach>
