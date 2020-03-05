@@ -10,6 +10,7 @@
 	</head>
 	
 	<body>
+	<form action="/3-GestionFormation_Hibernate_JEE/liste" method="post">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -20,6 +21,25 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1>La liste des formations présentes dans la base de donnée</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<h6>Trier par ville </h6> <br>
+				
+				<select name="lieuF">
+					<c:forEach items="${listeLieu}" var="listeL">
+						<option value="${listeL.idLieu}">${listeL.ville}</option>
+					</c:forEach>
+				</select> 
+				
+				<input type="submit" value="TRIER"> <br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+
 			</div>
 		</div>
 
@@ -36,6 +56,7 @@
 							</table>
 						</div>
 					</div>
+					
 		<div class="row">
 			<div class="col-lg-6">
 				<table class="table" style="text-align: right">
@@ -49,7 +70,7 @@
 				</table>
 			</div>
 		</div>
-
 	</div>
+</form>
 </body>
 </html>

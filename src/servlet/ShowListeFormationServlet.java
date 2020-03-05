@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.FormationDao;
 import dao.IFormationDao;
+import dao.ILieuDAO;
+import dao.LieuDAO;
 import fr.adaming.model.Formation;
+import fr.adaming.model.Lieu;
 
 
 @WebServlet("/liste")
@@ -33,15 +36,34 @@ public class ShowListeFormationServlet extends HttpServlet {
 		tab = dao.listFormation();
 		request.setAttribute("listeForm", tab);
 		
+		List<Lieu> tab1= new ArrayList<Lieu>();
+		ILieuDAO dao1 = new LieuDAO();
+		tab1 = dao1.listeLieux();
+		request.setAttribute("listeLieu", tab1);
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/webfiles/afficheliste.jsp").forward(request, response);
 	}
 
 
 	
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		List<Lieu> tab1= new ArrayList<Lieu>();
+		ILieuDAO dao1 = new LieuDAO();
+		tab1 = dao1.listeLieux();
+		request.setAttribute("listeLieu", tab1);
+		
+		Lieu l1 = new Lieu();
+			l1.setIdLieu(Integer.parseInt(request.getParameter("lieuF")));
+		
+		List<Formation> tab = new ArrayList<Formation>();
+		IFormationDao dao = new FormationDao();
+		tab = dao.findByLocation(l1);
+		request.setAttribute("listeForm", tab);
+		
+
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/webfiles/afficheliste.jsp").forward(request, response);
 	}
 
 }

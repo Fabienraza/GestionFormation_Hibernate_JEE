@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import fr.adaming.model.Formation;
+import fr.adaming.model.Lieu;
 
 public class FormationDao implements IFormationDao{
 	
@@ -61,6 +62,19 @@ public class FormationDao implements IFormationDao{
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+
+
+	@Override
+	public List<Formation> findByLocation(Lieu lieu) {
+		List<Formation> list = new ArrayList<Formation>();
+		session.beginTransaction();
+		SQLQuery query = session.createSQLQuery("select * from formation where idLieu =:lieu");
+		query.addEntity(Lieu.class);
+		query.setParameter("lieu", lieu.getIdLieu());
+		list = (ArrayList<Formation>) query.list();
+		return list;
 	}
 
 }
