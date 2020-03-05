@@ -7,11 +7,11 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavDropdown">
 		<ul class="navbar-nav">
-			<li class="nav-item active"><a class="nav-link" href="/WEB-INF/webfiles/homepage.jsp"> Accueil <span class="sr-only">(current)</span></a></li>
-
-			<li class="nav-item"><a class="nav-link" href="/3-GestionFormation_Hibernate_JEE/ajout">Ajouter une formation</a></li>
-
+			<li class="nav-item active"><a class="nav-link" href="/WEB-INF/webfiles/homepage"> Accueil <span class="sr-only">(current)</span></a></li>
+			<li class="nav-item"><a class="nav-link" href="/3-GestionFormation_Hibernate_JEE/ajoutformation">Ajouter une formation</a></li>
+			<li class="nav-item"><a class="nav-link" href="/3-GestionFormation_Hibernate_JEE/ajoutlieu">Ajouter un lieu de formation</a></li>
 			<li class="nav-item"><a class="nav-link" href="/3-GestionFormation_Hibernate_JEE/liste">Liste des formations</a></li>
+
 		</ul>
 	</div>
 </nav>

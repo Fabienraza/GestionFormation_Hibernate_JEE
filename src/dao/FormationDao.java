@@ -51,7 +51,6 @@ public class FormationDao implements IFormationDao{
 	/*
 	 * AUTRE METHODE PAR UTILISATION LANGAGE HIBERNATE QL POUR L'AFFICHAGE LISTE 
 	 */
-	
 	public List<Formation> getformation() {
 		try {
 			List<Formation> list = new ArrayList<Formation>();
@@ -63,6 +62,5 @@ public class FormationDao implements IFormationDao{
 			return null;
 		}
 	}
-	
 
 }

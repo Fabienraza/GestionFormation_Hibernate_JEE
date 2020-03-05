@@ -3,6 +3,8 @@ package fr.adaming.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Formation {
@@ -12,9 +14,16 @@ public class Formation {
 	private int id;
 	private String theme;
 	
+	@JoinColumn (name="idLieu")
+	@ManyToOne
+	private Lieu lieu;
 	
 	
-		//Constructeur
+	
+	
+									/**************
+									 * Constructeurs
+									 **************/
 	public Formation() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -27,7 +36,9 @@ public class Formation {
 	}
 
 	
-		// Getter et Setter
+										/******************
+										 * Getter et Setter
+										 ******************/
 	public int getId() {
 		return id;
 	}
@@ -44,13 +55,25 @@ public class Formation {
 		this.theme = theme;
 	}
 	
-	
-	
+								
+	public Lieu getLieu() {
+		return lieu;
+	}
 
+	public void setLieu(Lieu lieu) {
+		this.lieu = lieu;
+	}
+
+
+
+									/*******************
+									 * Methode to string
+									 *******************/
 	@Override
 	public String toString() {
-		return "Formation [id=" + id + ", theme=" + theme + "]";
+		return "Formation [id=" + id + ", theme=" + theme + ", lieu=" + lieu + "]";
 	}
+
 	
 	
 }
